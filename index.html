@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darren Dale Domondon | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* Doraemon Subtle Theme Colors */
+    :root {
+      --dora-blue: #0288d1;
+      --dora-blue-light: #e1f5fe;
+      --dora-red: #e53935;
+      --dora-yellow: #fbc02d;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Navbar */
+    header {
+      background: #ffffff;
+      border-bottom: 3px solid var(--dora-red);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--dora-blue);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .bell {
+      color: var(--dora-yellow);
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--dora-blue);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 0 2.5rem;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid var(--dora-blue);
+      object-fit: cover;
+      margin-bottom: 1.25rem;
+      background: var(--dora-blue-light);
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--dora-blue-light);
+      color: var(--dora-blue);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 1.5rem;
+      font-size: 1rem;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.65rem 1.3rem;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-blue {
+      background: var(--dora-blue);
+      color: white;
+    }
+
+    .btn-blue:hover {
+      opacity: 0.9;
+    }
+
+    .btn-outline {
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      background: var(--dora-blue-light);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+    }
+
+    .social-links a:hover {
+      color: var(--dora-blue);
+    }
+
+    /* Sections */
+    section {
+      padding: 2rem 0;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 6px;
+      height: 20px;
+      background: var(--dora-red);
+      border-radius: 4px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* About Info Grid */
+    .info-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    /* Skills Badges */
+    .skills-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .skill-tag {
+      background: var(--dora-blue-light);
+      color: var(--dora-blue);
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    /* Timeline */
+    .timeline-item {
+      padding-left: 1rem;
+      border-left: 2px solid var(--dora-blue);
+      margin-bottom: 1.25rem;
+    }
+
+    .timeline-item h4 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .timeline-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-tag {
+      font-size: 0.75rem;
+      background: #fef08a;
+      color: #854d0e;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    /* Contact Form */
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+
+    input:focus, textarea:focus {
+      outline: 2px solid var(--dora-blue);
+      border-color: transparent;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        gap: 0.75rem;
+        font-size: 0.85rem;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#hero" class="logo">
+          <i class="fa-solid fa-bell bell"></i> Darren Dale
+        </a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#resume">Resume</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <img 
+        src="assets/profile.jpg" 
+        alt="Darren Dale Domondon" 
+        class="avatar"
+        onerror="this.onerror=null; this.src='https://placehold.co/120x120/0288d1/ffffff?text=Darren';" 
+      />
+      <div>
+        <span class="badge">BSCS Student</span>
+      </div>
+      <h1>Darren Dale Domondon</h1>
+      <p class="hero-desc">
+        A fast-learning, highly <strong>adaptive</strong> computer science student with a deep passion for clean web and user interface <strong>designing</strong>.
+      </p>
+
+      <div class="btn-group">
+        <a href="#projects" class="btn btn-blue">
+          <i class="fa-solid fa-folder-open"></i> Projects
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fa-regular fa-envelope"></i> Contact Me
+        </a>
+      </div>
+
+      <div class="social-links">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="mailto:darrendaledomondon230@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="card">
+        <p>
+          Hello! I am <strong>Darren Dale Domondon</strong>, currently pursuing a Bachelor of Science in Computer Science (BSCS). I specialize in breaking down technical requirements, picking up new technologies quickly through an <strong>adaptive</strong> mindset, and crafting visually pleasant, user-focused <strong>designs</strong>.
+        </p>
+        <div class="info-list">
+          <div><strong>Course:</strong> BS Computer Science (BSCS)</div>
+          <div><strong>Work:</strong> College Student</div>
+          <div><strong>Key Strengths:</strong> Adaptive Problem Solving & UI Designing</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume / Experience / Skills -->
+    <section id="resume">
+      <h2 class="section-title">Resume & Experience</h2>
+      <div class="card">
+        <!-- Education -->
+        <div class="timeline-item">
+          <h4>Bachelor of Science in Computer Science (BSCS)</h4>
+          <div class="timeline-meta">College of Computing and Information Technology &bull; Student</div>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Coursework in Software Engineering, Relational Database Management Systems, Data Structures & Algorithms, and Object-Oriented Programming (Java).
+          </p>
+        </div>
+
+        <!-- Experience -->
+        <div class="timeline-item" style="margin-bottom: 0;">
+          <h4>Systems & Backend Contributor — Capstone 1</h4>
+          <div class="timeline-meta">CCIT Budget Transparency System &bull; Team Forensic</div>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Helped build relational database structures and transaction auditing workflows with strict authorization limited exclusively to the student treasurer and faculty adviser.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        
+        <!-- Project 1 (Capstone) -->
+        <div class="card">
+          <div class="project-header">
+            <h3>CCIT Budget Transparency System</h3>
+            <span class="project-tag">Capstone 1</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            A web platform engineered for organization accountability. Features transaction logs, item inventory, and receipt records with dual approvals.
+          </p>
+          <div class="skills-flex">
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Spiral Model</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="card">
+          <div class="project-header">
+            <h3>Student Portal & Form Validation</h3>
+            <span class="project-tag">Design & Web</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            A clean, responsive web interface emphasizing accessible layout design, client-side regex input validation, and instant visual feedback.
+          </p>
+          <div class="skills-flex">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">Responsive CSS</span>
+            <span class="skill-tag">JavaScript</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="card">
+          <div class="project-header">
+            <h3>Java Algorithmic Tools</h3>
+            <span class="project-tag">Algorithms</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            A collection of core computing utilities including IEEE-754 precision converters, balanced tree structures, and CPU scheduling models.
+          </p>
+          <div class="skills-flex">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Data Structures</span>
+            <span class="skill-tag">OS Algorithms</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact Me -->
+    <section id="contact">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="card">
+        <p style="font-size: 0.9rem; margin-bottom: 1.25rem;">
+          Feel free to reach out directly via email at: 
+          <a href="mailto:darrendaledomondon230@gmail.com" style="color: var(--dora-blue); font-weight: 600;">
+            darrendaledomondon230@gmail.com
+          </a>
+        </p>
+
+        <form id="contactForm" onsubmit="handleContact(event)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your Name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your.email@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" placeholder="Your message here..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-blue" style="width: 100%; justify-content: center;">
+            Send Message
+          </button>
+          
+          <div id="formStatus" style="display: none; margin-top: 1rem; color: #16a34a; font-weight: 600; text-align: center; font-size: 0.9rem;">
+            Thank you! Your message has been sent.
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Darren Dale Domondon &bull; BSCS Student Portfolio</p>
+    </div>
+  </footer>
+
+  <script>
+    function handleContact(e) {
+      e.preventDefault();
+      const status = document.getElementById('formStatus');
+      status.style.display = 'block';
+      document.getElementById('contactForm').reset();
+      setTimeout(() => {
+        status.style.display = 'none';
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
